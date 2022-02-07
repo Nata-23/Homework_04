@@ -61,7 +61,7 @@ const students = [
   },
 ];
 // showAverageScore();
-countAverageScore();
+// countAverageScore();
 function countAverageScore() {
   students.avaregeMark = students.forEach(
     (students) =>
