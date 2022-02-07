@@ -61,16 +61,17 @@ const students = [
   },
 ];
 // showAverageScore();
-// countAverageScore();
-function countAverageScore() {
-  students.avaregeMark = students.forEach(
-    (students) =>
-      students.marks.reduce((sum, current) => sum + current, 0) /
-      students.marks.length
-  );
-
-  console.log(students);
+countAverageScore(students);
+function countAverageScore(students) {
+  const array = students.slice(0, students.length);
+  array.forEach(function (element) {
+    element.avaregeMark =
+      element.marks.reduce((sum, current) => sum + current, 0) /
+      element.marks.length;
+  });
+  console.log(array);
 }
+
 //Должна вывести средний бал по всем студентам
 // function showEveryAverageScore() {
 //   let averageScore = 0;
