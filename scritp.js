@@ -61,7 +61,6 @@ const students = [
   },
 ];
 //4.1
-console.log(students);
 const newStudents = countAverageScore(students);
 console.log(newStudents);
 
