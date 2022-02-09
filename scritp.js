@@ -60,30 +60,32 @@ const students = [
     marks: [10, 9, 8, 9], //36, 9
   },
 ];
-// showAverageScore();
-countAverageScore(students);
+//4.1
+console.log(students);
+const newStudents = countAverageScore(students);
+console.log(newStudents);
+
 function countAverageScore(students) {
-  const array = students.slice(0, students.length);
-  array.forEach(function (element) {
+  // const newStudents = students.slice(0, students.length); //здесь исходный массив изменится
+  const newStudents = students.map((student) => Object.assign({}, student)); //здесь исходный массив НЕ изменится
+  newStudents.forEach(function (element) {
     element.avaregeMark =
       element.marks.reduce((sum, current) => sum + current, 0) /
       element.marks.length;
   });
-  console.log(array);
+  return newStudents;
 }
 
-//Должна вывести средний бал по всем студентам
-// function showEveryAverageScore() {
-//   let averageScore = 0;
-//   const res = students.map((e) => e.marks);
-//   for (let i = 0; i < res.length; i++) {
-//     averageScore =
-//       averageScore +
-//       res[i].reduce((sum, current) => sum + current, 0) / res[i].length;
-//   }
-//   averageScore = averageScore / res.length;
-//   console.log(`Cредний бал по всем студентам = ${averageScore}`);
-// }
+//4.2
+const averageMark = getAverageMark(newStudents);
+console.log(`Cредний бал по всем студентам = ${averageMark}`);
+
+function getAverageMark(newArray) {
+  return (
+    newArray.reduce((sum, current) => sum + current.avaregeMark, 0) /
+    newArray.length
+  );
+}
 
 //5
 // const vehicles = [
